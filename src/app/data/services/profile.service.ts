@@ -15,10 +15,10 @@ export class ProfileService {
 
   constructor() {}
 
-  getSubscribersShortList() {
+  getSubscribersShortList(subsAmount = 4) {
     return this.http
       .get<Pageble<Profile>>(`${this.baseApiUrl}account/subscribers/`)
-      .pipe(map((res) => res.items.slice(1, 4)));
+      .pipe(map((res) => res.items.slice(1, subsAmount)));
   }
 
   getTestAccounts() {
@@ -29,5 +29,9 @@ export class ProfileService {
     return this.http
       .get<Profile>(`${this.baseApiUrl}account/me`)
       .pipe(tap((res) => this.me.set(res)));
+  }
+
+  getAccount(id: string) {
+    return this.http.get<Profile>(`${this.baseApiUrl}account/${id}`);
   }
 }

@@ -30,7 +30,7 @@
     <h3 class="h6 mb16">Навыки</h3>
 
     <div class="stack-wrapper mb16">
-      @for (skill of ['js','css', 'html', 'angular', 'frontend']; track skill) {
+      @for (skill of profile.stack; track skill) {
       <div class="skill-tag">{{ skill }}</div>
       }
     </div>

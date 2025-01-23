@@ -21,6 +21,10 @@ export class ProfileService {
       .pipe(map((res) => res.items.slice(1, subsAmount)));
   }
 
+  patchProfile(profile: Partial<Profile>) {
+    return this.http.patch<Profile>(`${this.baseApiUrl}account/me`, profile);
+  }
+
   getTestAccounts() {
     return this.http.get<Profile[]>(`${this.baseApiUrl}account/test_accounts`);
   }

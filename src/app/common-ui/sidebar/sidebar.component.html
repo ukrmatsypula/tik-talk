@@ -1,15 +1,21 @@
 <img src="/assets/svg/logo-small.svg" alt="logo" class="ml16 mb20" />
 
-<nav>
-  <ul class="main-menu-list">
-    <li *ngFor="let menuItem of menuItems">
-      <a class="menu-item" [routerLink]="[menuItem.link]">
-        <svg [icon]="menuItem.icon"></svg>
-        <span>{{ menuItem.label }}</span>
-      </a>
-    </li>
-  </ul>
-</nav>
+<div class="mb20">
+  <nav>
+    <ul class="main-menu-list">
+      <li *ngFor="let menuItem of menuItems">
+        <a 
+          class="menu-item"
+          [routerLink]="[menuItem.link]"
+          routerLinkActive="active"
+        >
+          <svg [icon]="menuItem.icon"></svg>
+          <span>{{ menuItem.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
 
 <p class="medium-text mb20">Подпищики</p>
 
